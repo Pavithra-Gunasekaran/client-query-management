@@ -39,17 +39,35 @@ Security      -	hashlib	   -    Used for securely hashing user passwords before 
 
 Follow these quick steps to get the application running locally:
 
-1. Prerequisites
+1. Database Setup
+
+Create Database: Log into your MySQL server and create the database used in the database.py file:
+
+SQL
+
+CREATE DATABASE query_management_db;
 
 Make sure you have a local MySQL Server running.
 
-2. Install Dependencies
+2. Configure Credentials: Ensure the connection details in your database.py match your MySQL setup:
+
+Python
+
+Snippet from database.py
+connection = mysql.connector.connect(
+    host='localhost',
+    database='query_management_db',
+    user='root', 
+    password='root' # <--- CHANGE THIS IF NECESSARY
+)
+
+3. Install Dependencies
 Bash
 
  Install required libraries
 pip install streamlit pandas mysql-connector-python
 
-3. Database Initialization
+4. Database Initialization
 Ensure your MySQL credentials in database.py are correct.
 
 Run the data initialization script to create tables and load sample data:
@@ -58,7 +76,7 @@ Bash
 
 python queries.py
 
-4. Run the App
+5. Run the App
 Start the main application using Streamlit:
 
 Bash
